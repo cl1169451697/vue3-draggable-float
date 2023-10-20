@@ -1,0 +1,5 @@
+# 只有编译后的 dist 目录、package.json、README.md是需要被发布的
+# 忽略目录
+node_modules
+
+# 忽略指定文件

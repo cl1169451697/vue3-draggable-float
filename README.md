@@ -2,16 +2,16 @@
 
 ## Document & Online preview
 
-[Vue Amazing UI](https://themusecatcher.github.io/vue-amazing-ui/)
+[vue3-draggable-float](https://github.com/cl1169451697/vue3-draggable-float/)
 
 ## Install & Use
 
 ```bash
-pnpm i vue-amazing-ui
+pnpm i vue3-draggable-float
 # or
-npm install vue-amazing-ui
+npm install vue3-draggable-float
 # or
-yarn add vue-amazing-ui
+yarn add vue3-draggable-float
 ```
 
 Import and register component
