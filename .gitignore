@@ -1,5 +1,31 @@
-# 只有编译后的 dist 目录、package.json、README.md是需要被发布的
-# 忽略目录
-node_modules
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# 忽略指定文件
+node_modules
+.DS_Store
+dist
+# packages
+*.mp4
+dist-ssr
+coverage
+*.local
+.npmrc
+
+/cypress/videos/
+/cypress/screenshots/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
