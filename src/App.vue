@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
+import { DraggableFloat } from 'vue3-draggable-float'
 const pading = ref('30,5,50,10')
 
 function handleOk() {
@@ -22,7 +22,7 @@ function handleEnd(val){
 </script>
 
 <template>
-  <DraggableFloat :padding="pading" @handleOk="handleOk2" @handleMove="handleMove" @handleEnd="handleEnd">555</DraggableFloat>
+  <DraggableFloat :padding="pading">555</DraggableFloat>
   <div>2</div>
   <div>4</div>
   <div>5</div>

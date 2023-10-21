@@ -11,8 +11,8 @@
 </template>
 <script setup lang="ts" name="DraggableFloat">
 import { ref, onMounted, nextTick, watch, computed } from 'vue'
-import { getPadding } from '../utils'
-import homeImg from './assets/img/home-alt.png'
+import { getPadding } from './utils'
+import homeImg from '../../../assets/img/home-alt.png'
 interface Props {
   padding?: string // 安全距离
   isOverflowClient: boolean // 是否可以溢出窗口
@@ -38,7 +38,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits(['handleOk', 'handleMove', 'handleEnd'])
 
-const floatRef = ref<HTMLElement>(null) // 拖动dome
+const floatRef = ref<HTMLElement | any>() // 拖动dome
 const clientWidth = ref<number>(0) // 视口宽度(元素 + 边框大小)
 const clientHeight = ref<number>(0) // 视口高度
 const currentTop = ref<number>(0) // 当前滚动的距离
@@ -77,7 +77,7 @@ function touchPc() {
   let lastTime: number = 0
   let X: number = 0
   let Y: number = 0
-  floatRef.value.onmousedown = function (e) {
+  floatRef.value.onmousedown = function (e: any) {
     firstTime = new Date().getTime()
     floatRef.value.setAttribute('data-flag', 'false')
     floatRef.value.style.transition = 'none'
@@ -111,8 +111,8 @@ function touchPc() {
           Y = clientHeight.value - floatRef.value.clientHeight - paddingArr.value[2]
         }
       }
-      floatRef.value.style.left = X + 'px'
-      floatRef.value.style.top = Y + 'px'
+      left.value = X
+      top.value = Y
 
       handleEmit('handleMove', {
         left: X,
@@ -120,7 +120,7 @@ function touchPc() {
       })
     }
 
-    document.onmouseup = function (el) {
+    document.onmouseup = function () {
       document.onmousemove = document.onmouseup = null
       lastTime = new Date().getTime()
       // 处理点击与拖动冲突问题
@@ -133,10 +133,10 @@ function touchPc() {
         if (X > clientWidth.value / 2) {
           // 放下坐标靠近右侧
           X = clientWidth.value - floatRef.value.offsetWidth
-          floatRef.value.style.left = left + 'px'
+          left.value = X
         } else {
           // 放下坐标靠近左侧
-          floatRef.value.style.left = paddingArr.value[3] + 'px'
+          left.value = paddingArr.value[3]
         }
       }
 

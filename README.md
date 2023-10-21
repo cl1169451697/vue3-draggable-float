@@ -14,18 +14,11 @@ npm install vue3-draggable-float
 yarn add vue3-draggable-float
 ```
 
-Import and register component
 
-**Global**
+**使用**
 
 ```ts
-import { createApp } from 'vue'
-import App from './App.vue'
-
-import DraggableFloat from 'vue3-draggable-float'
-
-const app = createApp(App)
-app.use(DraggableFloat)
+import { DraggableFloat } from 'vue3-draggable-float'
 ```
 
 ## Components
