@@ -1,6 +1,9 @@
 import { defineComponent, computed, openBlock, createElementBlock } from "vue";
+const __default__ = defineComponent({
+  name: "DraggableFloat"
+});
 const _sfc_main = /* @__PURE__ */ defineComponent({
-  __name: "Breadcrumb",
+  ...__default__,
   props: {
     routes: { default: () => [] },
     fontSize: { default: 14 },
@@ -15,11 +18,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return props.routes.length;
     });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", null, "44444");
+      return openBlock(), createElementBlock("div", null, "22");
     };
   }
 });
-const Breadcrumb_vue_vue_type_style_index_0_scoped_9def8167_lang = "";
+const DraggableFloat_vue_vue_type_style_index_0_scoped_67b2ce3c_lang = "";
 const _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -27,20 +30,30 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const Breadcrumb = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-9def8167"]]);
-Breadcrumb.install = (app) => {
-  app.component(Breadcrumb.__name, Breadcrumb);
+const DraggableFloat = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-67b2ce3c"]]);
+DraggableFloat.install = function(Vue) {
+  Vue.component(DraggableFloat.name, DraggableFloat);
 };
-const components = [Breadcrumb];
-const install = (app) => {
-  components.forEach(
-    (component) => app.component(component.__name, component)
-  );
+const components = [
+  DraggableFloat
+];
+const install = function(Vue) {
+  if (install.installed)
+    return;
+  install.installed = true;
+  components.map((component) => {
+    Vue.component(component.name, component);
+  });
 };
-const VueAmazingUI = {
-  install
+if (typeof window !== "undefined" && window.Vue) {
+  install(window.Vue);
+}
+const index = {
+  // 导出的对象必须具备一个 install 方法
+  install,
+  // 组件列表
+  ...components
 };
 export {
-  Breadcrumb,
-  VueAmazingUI as default
+  index as default
 };

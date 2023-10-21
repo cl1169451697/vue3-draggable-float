@@ -11,6 +11,9 @@ import { fileURLToPath, URL } from 'node:url'
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import vueSetupExtend from 'vite-plugin-vue-setup-extend';
+
 
 // ant-desing按需引入
 
@@ -21,6 +24,8 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [
     vue(),
+    vueJsx(),
+    vueSetupExtend()
     // visualizer({ // 生成的分析图文件名，默认stats.html
     //   file: 'stats.html',
     //   open: true // 打包后自动打开分析图

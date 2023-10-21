@@ -1,29 +1,28 @@
-import type { App } from "vue";
-import Breadcrumb from "./breadcrumb";
 
-// 所有组件列表
-const components = [Breadcrumb];
+import DraggableFloat from './draggableFloat'
+
+// 以数组的结构保存组件，便于遍历
+const components = [
+  DraggableFloat
+]
 
 // 定义 install 方法
-const install = (app: App): void => {
-  // 遍历注册所有组件
-  /*
-      component.__name ts报错
-      Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
-  
-      Type 'undefined' is not assignable to type 'string'.ts(2345)
-      解决方式一：使用// @ts-ignore
-      解决方式二：使用类型断言 尖括号语法(component.__name) 或 as语法(component.__name as string)
-    */
-  components.forEach((component) =>
-    app.component(component.__name as string, component)
-  );
-};
+const install = function (Vue: any) {
+  if (install.installed) return
+  install.installed = true
+  // 遍历并注册全局组件
+  components.map(component => {
+    Vue.component(component.name, component)
+  })
+}
 
-export { Breadcrumb };
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
 
-const VueAmazingUI = {
+export default {
+  // 导出的对象必须具备一个 install 方法
   install,
-};
-
-export default VueAmazingUI;
+  // 组件列表
+  ...components
+}
