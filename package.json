@@ -1,7 +1,7 @@
 {
   "name": "vue3-draggable-float",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.7",
   "files": [
     "dist"
   ],
@@ -76,7 +76,7 @@
   "description": "This components should help get you started developing with Vue Vue3DraggableFloat in Vue 3.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/themusecatcher/vue-amazing-ui.git"
+    "url": "git+https://github.com/cl1169451697/vue3-draggable-float.git"
   },
   "keywords": [
     "Vue3",

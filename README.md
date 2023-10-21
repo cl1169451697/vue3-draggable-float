@@ -1,4 +1,5 @@
 # vue3-draggable-float
+## Vue3,悬浮拖动组件,支持PC端和移动端
 
 ## Document & Online preview
 
